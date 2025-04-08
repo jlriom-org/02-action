@@ -1,11 +1,12 @@
 name: demo1
-on: 
-  pull_request:
-    types: [opened, synchronize, reopened]
-    branches: [main, develop]
-  push:
-    branches: [main, develop]
-  workflow_dispatch:
+on: [workflow_dispatch]
+# on: 
+#   pull_request:
+#     types: [opened, synchronize, reopened]
+#     branches: [main, develop]
+#   push:
+#     branches: [main, develop]
+#   workflow_dispatch:
 jobs:
     test:
         runs-on: ubuntu-latest
