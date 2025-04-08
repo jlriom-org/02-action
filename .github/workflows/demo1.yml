@@ -1,4 +1,4 @@
-name: Deploy Project
+name: demo1
 on: 
   pull_request:
     types: [opened]
