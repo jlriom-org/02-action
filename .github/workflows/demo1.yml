@@ -1,7 +1,7 @@
 name: demo1
 on: 
   pull_request:
-    types: [opened]
+    types: [opened, synchronize, reopened]
   workflow_dispatch:
 jobs:
     test:
@@ -23,6 +23,6 @@ jobs:
               run: npm run test
             - name: Build Code
               run: npm run build
-            - name: Deploy Code
-              run: echo "Deplying code..."
+##            - name: Deploy Code
+##              run: echo "Deplying code..."
     
