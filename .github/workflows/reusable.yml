@@ -8,10 +8,27 @@ on:
             version:
                 required: true
                 type: string
+        # secrets:
+        #     MY_SECRET:
+        #         required: true
+        #     MY_OTHER_SECRET:
+        #         required: true
+        #     GITHUB_TOKEN:
+        #         required: true                
+        outputs:
+            output1:
+                description: 'Output 1'
+                value: ${{ jobs.deploy.outputs.output1 }}
 jobs:
   deploy:
     runs-on: ubuntu-latest
+    outputs:
+      output1: ${{ steps.step1.outputs.step-result }}
     steps:
+      - name: Output contents
+        id: step1
+        run: | 
+          echo "step-result=success" >> $GITHUB_OUTPUT
       - name: Output contents
         run: ls
       - name: Deploy

@@ -67,8 +67,22 @@ jobs:
     uses: ./.github/workflows/reusable.yml
     with:
       environment: production
-      version: 1.0.0
+      version: 1.0.0  
   
+  print-deploy-result:
+    needs: deploy
+    runs-on: ubuntu-latest
+    steps:
+      - name: Output deploy result
+        run: |
+          echo "Deploy result: ${{ needs.deploy.outputs.output1 }}"
+
+    # secrets:
+    #   MY_SECRET: ${{ secrets.MY_SECRET }}
+    #   MY_OTHER_SECRET: ${{ secrets.MY_OTHER_SECRET }}
+    #   GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+    #   AWS_ACCESS_KEY_ID: ${{ secrets.AWS_ACCESS_KEY_ID }}
+    #   AWS_SECRET_ACCESS_KEY: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
   reports:
     needs: [lint, deploy]
     if: failure()
