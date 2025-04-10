@@ -64,8 +64,10 @@ jobs:
           name: dist-files
           path: dist
   deploy:
-    needs: build
     uses: ./.github/workflows/reusable.yml
+    with:
+      environment: production
+      version: 1.0.0
   
   reports:
     needs: [lint, deploy]
