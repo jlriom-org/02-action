@@ -9,7 +9,6 @@ outputs:
   used-cache:
     value: ${{ steps.install.outputs.cache }}
     description: 'Cache used status'
-    description: 'Cache hit status'
     required: false
     default: 'false'
 runs:
